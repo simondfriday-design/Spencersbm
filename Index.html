@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Virtual Numbers</title></head>
+<body>
+<h1>Buy Virtual Number</h1>
+<button id="buyBtn">Buy Number</button>
+<script>
+document.getElementById('buyBtn').onclick = async () => {
+  const res = await fetch('/.netlify/functions/buy-number', {
+    method: 'POST',
+    body: JSON.stringify({ service: 'whatsapp', country: 'US' })
+  });
+  const data = await res.json();
+  alert('Number: ' + data.number);
+};
+</script>
+</body>
+</html>
